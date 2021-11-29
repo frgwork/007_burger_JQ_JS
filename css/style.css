@@ -1,0 +1,112 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: sans-serif;
+  font-size: 72px;
+  text-transform: uppercase;
+  color: #000;
+}
+
+.bureger-menu__button {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 30;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #2a2a2a;
+  transition: 0.3s;
+}
+
+.bureger-menu__lines,
+.bureger-menu__lines::before,
+.bureger-menu__lines::after {
+  position: absolute;
+  width: 40px;
+  height: 6px;
+  background-color: #fff;
+}
+.bureger-menu__lines {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.bureger-menu__lines::before {
+  content: "";
+  top: -12px;
+}
+.bureger-menu__lines::after {
+  content: "";
+  top: 12px;
+}
+.bureger-menu__button:hover .bureger-menu__links {
+  filter: brightness(0.7);
+}
+.bureger-menu__active .bureger-menu__lines::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+.bureger-menu__active .bureger-menu__lines::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+.bureger-menu__active .bureger-menu__button,
+.bureger-menu__active .bureger-menu__lines {
+  background-color: transparent;
+}
+
+.bureger-menu__nav {
+  padding-top: 80px;
+  position: fixed;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #2a2a2a;
+  overflow-y: auto;
+  left: -100%;
+  transition: 0.3s;
+}
+.bureger-menu__active .bureger-menu__nav {
+  left: 0;
+}
+
+.bureger-menu__link {
+  padding: 30px;
+  font-family: sans-serif;
+  font-size: 32px;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-weight: 700;
+  color: #fff;
+}
+.bureger-menu__link:hover {
+  filter: brightness(0.7);
+}
+
+.bureger-menu__overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+}
+.bureger-menu__active .bureger-menu__overlay {
+  display: block;
+}
+
+/* .lock{
+  overflow: hidden;
+} */
